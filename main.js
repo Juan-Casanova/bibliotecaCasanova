@@ -1,4 +1,4 @@
-const numbers = [1,2,3,4,5,6]
+const numbers = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}]
 
 
 const juancasanova = {}
@@ -27,24 +27,52 @@ juancasanova.map = (array, callback) => {
     return newArray;
 }
 
-juancasanova.find = (array, bol) => {
+// encuentra el elemento que cumple la condición del callback y lo devuelve
+juancasanova.find = (array, element) => {
     for(let i=0; i<array.length; i++) {
-        if(bol) {
+        if(element === array[i]) {
             return array[i];
         }
     }
 }
 
-juancasanova.findIndex = (array, vari) => {
+juancasanova.findIndex = (array, element) => {
     for(let i=0; i<array.length; i++) {
-        if(array.length===vari) {
-            return array[i];
+        if(element === array[i]) {
+            return i;
         }
     }
 }
 
-const found = numbers.find(element => element < 10);
-console.log(found);
+juancasanova.contains = (array, element) => {
+    for(let i=0; i<array.length; i++) {
+        if(element === array[i]) {
+            return true;
+        }
+    }
+}
 
-const found1 = juancasanova.find(numbers,10);
-console.log(found1);
+juancasanova.pluck = (array, element1) => {
+    let newArray = [];
+    
+    for (let i = 0; i < array.length; i++) {
+        if(array[i].hasOwnProperty(element1)) {
+            newArray.push(array[i].element1)
+        }
+    }
+    return newArray;
+}
+
+juancasanova.without = (array, elemet) => {
+
+    let newArray = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if(array[i]!==elemet)
+        {
+            newArray.push(array[i]);
+            console.log("entrepapu")
+        }
+    }
+    return newArray;
+}
